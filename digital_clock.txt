@@ -1,0 +1,33 @@
+from tkinter import *
+from time import *
+
+def update():
+    time_str = strftime("%I:%M:%S %p")
+    time_label.config(text=time_str)
+
+    day_str = strftime("%A")
+    day_label.config(text=day_str)
+
+    date_str = strftime("%B %d, %Y")
+    date_label.config(text=date_str)
+
+    clock_window.after(1000,update)
+
+clock_window = Tk()
+clock_window.geometry("330x170")
+clock_window.title("Digital Clock")
+clock_window.config(bg="#CCE3DE")
+clock_window.resizable(False,False)
+
+time_label=Label(clock_window,font=("Open Sans",40),bg="#CCE3DE",fg="#00296B")
+time_label.pack()
+
+day_label=Label(clock_window,font=("Open Sans",30),bg="#00296B",fg="#CCE3DE")
+day_label.pack()
+
+date_label=Label(clock_window,font=("Open Sans",20),bg="#CCE3DE",fg="#00296B")
+date_label.pack()
+
+update()
+
+clock_window.mainloop()
